@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CP Insumos</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #ffffff;
+        color: #333;
+    }
+
+    /* ================= HERO ================= */
+    .hero {
+        width: 100%;
+        height: 380px;
+        background-image: url('HERO.png');
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+    }
+
+    .hero-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+        z-index: 1;
+    }
+
+    .hero-text h1 {
+        font-size: 32px;
+        margin-bottom: 10px;
+        text-shadow: 0px 4px 10px rgba(0,0,0,0.9);
+    }
+
+    /* ================= CARRUSEL ================= */
+    .carousel-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 25px;
+    }
+
+    .arrow {
+        font-size: 32px;
+        cursor: pointer;
+        padding: 10px;
+        color: #555;
+        user-select: none;
+    }
+
+    .carousel {
+        width: 72%;
+        overflow: hidden;
+    }
+
+    .carousel-track {
+        display: flex;
+        transition: transform 0.4s ease;
+        gap: 15px;
+    }
+
+    .carousel img {
+        width: 180px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
+    /* ================= BOTÓN PRINCIPAL ================= */
+    .center-btn {
+        text-align: center;
+        margin: 35px 0;
+    }
+
+    .main-btn {
+        background-color: #2850a7;
+        color: white;
+        padding: 14px 22px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        font-size: 18px;
+    }
+
+    /* ================= FORMULARIO OCULTO ================= */
+    #formulario {
+        display: none;
+        max-width: 900px;
+        margin: 40px auto;
+        background: #fff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+    }
+
+    #formulario h2 {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    h3 {
+        margin-top: 25px;
+    }
+
+    label {
+        display: block;
+        margin: 5px 0;
+    }
+
+    textarea, input {
+        width: 100%;
+        padding: 12px;
+        margin-top: 8px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+    }
+
+    .submit-btn {
+        margin-top: 20px;
+        background-color: #2850a7;
+        color: white;
+        padding: 14px 22px;
+        border: none;
+        font-size: 18px;
+        border-radius: 8px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    /* ================= BLOQUE FINAL ================= */
+    .footer-block {
+        max-width: 900px;
+        margin: 50px auto;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .footer-btn {
+        background-color: #2850a7;
+        color: white;
+        padding: 12px 18px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        margin: 8px;
+    }
+
+    .whatsapp {
+        background-color: #25d366 !important;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- ================= HERO ================= -->
+<div class="hero">
+    <div class="hero-text">
+        <h1>Soluciones industriales en empaque y consumibles</h1>
+    </div>
+</div>
+
+<!-- ================= CARRUSEL ================= -->
+<div class="carousel-container">
+    <span class="arrow" onclick="moveSlide(-1)">❮</span>
+
+    <div class="carousel">
+        <div class="carousel-track" id="track">
+            <img src="ROLLO TERMICO.jpeg">
+            <img src="CINTAS ADHESIVAS.png">
+            <img src="CINTA APLICADOR.jpeg">
+            <img src="PLAYO.png">
+            <img src="ETIQUETA ROTULADA.jpeg">
+            <img src="BOLSA NEGRA.png">
+            <img src="TARIMAS.png">
+        </div>
+    </div>
+
+    <span class="arrow" onclick="moveSlide(1)">❯</span>
+</div>
+
+<!-- BOTÓN -->
+<div class="center-btn">
+    <button class="main-btn" onclick="mostrarFormulario()">Solicita tu cotización</button>
+</div>
+
+<!-- ================= FORMULARIO ================= -->
+<div id="formulario">
+
+    <h2>Solicita tu cotización</h2>
+    <p>Selecciona los productos que te interesan y comparte tus datos para recibir una cotización personalizada.</p>
+
+    <!-- CINTAS -->
+    <h3>Cintas Adhesivas</h3>
+    <label><input type="checkbox" name="producto" value="Cinta canela"> Cinta canela</label>
+    <label><input type="checkbox" name="producto" value="Cinta transparente"> Cinta transparente (Durex)</label>
+    <label><input type="checkbox" name="producto" value="Masking tape"> Masking tape</label>
+    <label><input type="checkbox" name="producto" value="Cinta Kraft"> Cinta Kraft</label>
+    <label><input type="checkbox" name="producto" value="Cinta impresa"> Cinta impresa</label>
+    <label><input type="checkbox" name="producto" value="Cinta Gorilla"> Cinta Gorilla</label>
+    <label><input type="checkbox" name="producto" value="Cinta Royal"> Cinta Royal</label>
+    <label><input type="checkbox" name="producto" value="Cinta Max"> Cinta Max</label>
+    <label><input type="checkbox" name="producto" value="Cinta de color"> Cinta de color</label>
+
+    <!-- EMBALAJE -->
+    <h3>Material de Embalaje y Protección</h3>
+    <label><input type="checkbox" name="producto" value="Polistretch"> Polistretch</label>
+    <label><input type="checkbox" name="producto" value="Vitafilm"> Vitafilm</label>
+    <label><input type="checkbox" name="producto" value="Polietileno"> Polietileno</label>
+    <label><input type="checkbox" name="producto" value="Burbuja"> Burbuja</label>
+    <label><input type="checkbox" name="producto" value="Polifoam"> Polifoam</label>
+    <label><input type="checkbox" name="producto" value="Liner de cartón"> Liner de cartón</label>
+    <label><input type="checkbox" name="producto" value="Cajas de cartón"> Cajas de cartón</label>
+    <label><input type="checkbox" name="producto" value="Fleje"> Fleje / Fleje de acero</label>
+    <label><input type="checkbox" name="producto" value="Rafia"> Rafia</label>
+
+    <!-- BOLSAS -->
+    <h3>Bolsas</h3>
+    <label><input type="checkbox" name="producto" value="Bolsa natural"> Bolsa natural</label>
+    <label><input type="checkbox" name="producto" value="Bolsa negra"> Bolsa negra</label>
+    <label><input type="checkbox" name="producto" value="Bolsa reciclada"> Bolsa reciclada</label>
+    <label><input type="checkbox" name="producto" value="Bolsa polipapel"> Bolsa de polipapel</label>
+    <label><input type="checkbox" name="producto" value="Bolsa Kraft"> Bolsa Kraft</label>
+
+    <!-- PAPELERÍA -->
+    <h3>Papelería e Impresión</h3>
+    <label><input type="checkbox" name="producto" value="Papel Kraft"> Papel Kraft</label>
+    <label><input type="checkbox" name="producto" value="Papel Bond"> Papel Bond</label>
+    <label><input type="checkbox" name="producto" value="Rollo térmico"> Rollo térmico</label>
+    <label><input type="checkbox" name="producto" value="Autocopiante"> Autocopiante</label>
+    <label><input type="checkbox" name="producto" value="Ribbon"> Ribbon</label>
+    <label><input type="checkbox" name="producto" value="Etiqueta térmica"> Etiqueta térmica</label>
+    <label><input type="checkbox" name="producto" value="Etiqueta transtérmica"> Etiqueta transtérmica</label>
+
+    <!-- CANTIDADES -->
+    <h3>Cantidades aproximadas</h3>
+    <textarea id="cantidades" placeholder="Ejemplo: Cinta canela: 50 cajas; Bolsa negra: 1000 pzas; etc."></textarea>
+
+    <!-- DATOS -->
+    <h3>Tus datos</h3>
+    <input id="nombre" placeholder="Nombre completo">
+    <input id="empresa" placeholder="Empresa">
+    <input id="correo" placeholder="Correo electrónico">
+    <input id="telefono" placeholder="Teléfono">
+
+    <button class="submit-btn" onclick="enviarCotizacion()">Enviar cotización por WhatsApp</button>
+
+</div>
+
+<!-- ================= BLOQUE FINAL ================= -->
+<div class="footer-block">
+    <h1 style="margin-bottom:5px;">Esther Bucay</h1>
+    <p style="margin-top:0; font-size:18px;">Ejecutiva de Ventas</p>
+
+    <button class="footer-btn" onclick="window.open('catalogo.pdf')">Abrir Catálogo</button>
+
+    <button class="footer-btn whatsapp" onclick="window.open('https://wa.me/5587929029')">
+        Contactar por WhatsApp
+    </button>
+</div>
+
+<script>
+let index = 0;
+const track = document.getElementById("track");
+const totalSlides = track.children.length;
+
+function moveSlide(dir) {
+    index += dir;
+    if (index < 0) index = totalSlides - 4;
+    if (index > totalSlides - 4) index = 0;
+    track.style.transform = `translateX(${-index * 195}px)`;
+}
+
+function mostrarFormulario() {
+    document.getElementById("formulario").style.display = "block";
+    window.scrollTo({ top: 500, behavior: "smooth" });
+}
+
+function enviarCotizacion() {
+    const seleccionados = [...document.querySelectorAll("input[name='producto']:checked")]
+        .map(i => "- " + i.value).join("\n");
+
+    const nombre = document.getElementById("nombre").value;
+    const empresa = document.getElementById("empresa").value;
+    const correo = document.getElementById("correo").value;
+    const telefono = document.getElementById("telefono").value;
+    const cantidades = document.getElementById("cantidades").value;
+
+    const mensaje = 
+`Solicitud de cotización:
+
+Productos seleccionados:
+${seleccionados}
+
+Cantidades:
+${cantidades}
+
+Datos del cliente:
+Nombre: ${nombre}
+Empresa: ${empresa}
+Correo: ${correo}
+Teléfono: ${telefono}`;
+
+    const url = "https://wa.me/5587929029?text=" + encodeURIComponent(mensaje);
+    window.open(url);
+}
+</script>
+
+</body>
+</html>
