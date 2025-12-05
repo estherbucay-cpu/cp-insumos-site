@@ -208,16 +208,18 @@ function mostrarFormulario() {
     window.scrollTo({ top: formulario.offsetTop - 50, behavior: "smooth" });
 }
 
-function enviarCotizacion() {
-    const seleccionados = [...document.querySelectorAll("input[name='producto']:checked")].map(i => "• " + i.value).join("\n");
+ const seleccionados = [...document.querySelectorAll("input[name='producto']:checked")]
+        .map(i => "- " + i.value)
+        .join("\n");
+
     const nombre = document.getElementById("nombre").value;
     const empresa = document.getElementById("empresa").value;
     const correo = document.getElementById("correo").value;
     const telefono = document.getElementById("telefono").value;
     const cantidades = document.getElementById("cantidades").value;
 
-    const mensaje = `
-Solicitud de cotización
+    const mensaje = 
+`Solicitud de cotización:
 
 Productos seleccionados:
 ${seleccionados}
@@ -236,6 +238,3 @@ Teléfono: ${telefono}
     window.open(url);
 }
 </script>
-
-</body>
-</html>
