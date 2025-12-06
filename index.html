@@ -1,240 +1,428 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CP Insumos</title>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>CP Insumos</title>
 
-<style>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background-color: #ffffff;
-        color: #333;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      color: #333;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
     }
 
     /* HERO */
     .hero {
-        width: 100%;
-        height: 380px;
-        background-image: url("HERO.png");
-        background-size: cover;
-        background-position: center;
-        position: relative;
-        overflow: hidden;
+      width: 100%;
+      height: 60vh;
+      min-height: 320px;
+      background-image: url("HERO.png");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 16px;
     }
 
-    .hero-text {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        color: white;
-        font-size: 32px;
-        text-shadow: 0px 4px 10px rgba(0,0,0,0.6);
+    .hero-text h1 {
+      font-size: 7vw;
+      max-width: 600px;
+      color: #ffffff;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
     }
 
     /* CARRUSEL */
+    .carousel-section {
+      padding: 24px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+    }
+
     .carousel-container {
-        width: 100%;
-        margin-top: 25px;
-        display: flex;
-        justify-content: center;
+      width: 86%;
+      max-width: 700px;
+      overflow: hidden;
     }
-    .carousel {
-        width: 77%;
-        overflow: hidden;
-    }
+
     .carousel-track {
-        display: flex;
-        transition: transform 0.4s ease;
+      display: flex;
+      transition: transform 0.4s ease;
+      gap: 12px;
     }
-    .carousel img {
-        width: 195px;
-        height: 195px;
-        margin-right: 20px;
-        border-radius: 8px;
-        object-fit: cover;
+
+    .carousel-track img {
+      width: 150px;
+      height: 150px;
+      border-radius: 8px;
+      object-fit: cover;
+      flex-shrink: 0;
     }
+
     .arrow {
-        cursor: pointer;
-        font-size: 32px;
-        padding: 5px;
-        user-select: none;
+      cursor: pointer;
+      font-size: 28px;
+      user-select: none;
+      padding: 8px;
     }
 
     /* BOTÓN CENTRAL */
     .center-btn {
-        display: block;
-        margin: 35px auto;
-        padding: 12px 28px;
-        background-color: #2144C6;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 17px;
+      display: block;
+      margin: 24px auto 0;
+      padding: 14px 28px;
+      background-color: #2144c6;
+      color: #ffffff;
+      border: none;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .center-btn:hover {
+      opacity: 0.9;
     }
 
     /* FORMULARIO */
     #formulario {
-        display: none;
-        margin: 40px auto;
-        width: 85%;
-    }
-    textarea {
-        width: 100%;
-        height: 90px;
-    }
-    input {
-        margin-top: 10px;
-        width: 100%;
-        padding: 8px;
-    }
-    .submit-btn {
-        background-color: #25d366;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 16px;
-        margin-top: 15px;
-    }
-    .footer-btn {
-        background-color: #2144C6;
-        color: white;
-        padding: 10px 20px;
-        margin-top: 12px;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 16px;
-    }
-    .whatsapp {
-        background-color: #25d366 !important;
+      display: none;
+      max-width: 800px;
+      margin: 32px auto;
+      padding: 16px;
     }
 
-</style>
+    #formulario h2 {
+      margin-bottom: 8px;
+      font-size: 22px;
+      text-align: center;
+    }
+
+    #formulario p {
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .form-section {
+      margin-bottom: 18px;
+    }
+
+    .form-section h3 {
+      margin-bottom: 6px;
+      font-size: 18px;
+    }
+
+    label {
+      font-size: 14px;
+    }
+
+    .form-section label {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 90px;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      resize: vertical;
+      font-family: inherit;
+      font-size: 14px;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 6px;
+      margin-bottom: 8px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .submit-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 12px 22px;
+      background-color: #25d366;
+      color: #ffffff;
+      border: none;
+      border-radius: 999px;
+      font-size: 15px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .submit-btn:hover {
+      filter: brightness(1.05);
+    }
+
+    /* FOOTER BLOQUE */
+    .footer-block {
+      text-align: center;
+      margin-top: 40px;
+      padding: 24px 16px 40px;
+      background-color: #f5f5f5;
+    }
+
+    .footer-block h3 {
+      margin-bottom: 4px;
+      font-size: 18px;
+    }
+
+    .footer-block p {
+      margin: 0 0 16px 0;
+      font-size: 15px;
+    }
+
+    .footer-btn {
+      display: inline-block;
+      margin: 6px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+      color: #ffffff;
+      background-color: #2144c6;
+    }
+
+    .footer-btn.whatsapp {
+      background-color: #25d366;
+    }
+
+    .footer-btn:hover {
+      filter: brightness(1.05);
+    }
+
+    @media (min-width: 768px) {
+      .hero-text h1 {
+        font-size: 42px;
+      }
+
+      .carousel-track img {
+        width: 180px;
+        height: 180px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-
-<!-- HERO -->
-<div class="hero">
+  <!-- HERO -->
+  <section class="hero">
     <div class="hero-text">
-        <h1>Soluciones industriales en empaque y consumibles</h1>
+      <h1>Soluciones industriales en empaque y consumibles</h1>
     </div>
-</div>
+  </section>
 
-<!-- CARRUSEL -->
-<div class="carousel-container">
-    <span class="arrow" onclick="moveSlide(-1)">❮</span>
-    <div class="carousel">
-        <div class="carousel-track" id="track">
-            <img src="ROLLO TERMICO.jpeg">
-            <img src="CINTAS ADHESIVAS.png">
-            <img src="CINTA APLICADOR.jpeg">
-            <img src="PLAYO.png">
-            <img src="ETIQUETA ROTULADA.jpeg">
-            <img src="BOLSA NEGRA.png">
-            <img src="TARIMAS.png">
-        </div>
+  <!-- CARRUSEL -->
+  <section class="carousel-section">
+    <span class="arrow" onclick="moveSlide(-1)">&lt;</span>
+
+    <div class="carousel-container">
+      <div class="carousel-track" id="track">
+        <img src="ROLLO TERMICO.jpeg" alt="Rollo térmico" />
+        <img src="CINTAS ADHESIVAS.png" alt="Cintas adhesivas" />
+        <img src="CINTA APLICADOR.jpeg" alt="Cinta aplicador" />
+        <img src="PLAYO.png" alt="Playo" />
+        <img src="ETIQUETA ROTULADA.jpeg" alt="Etiqueta rotulada" />
+        <img src="BOLSA NEGRA.png" alt="Bolsa negra" />
+        <img src="TARIMAS.png" alt="Tarimas" />
+      </div>
     </div>
-    <span class="arrow" onclick="moveSlide(1)">❯</span>
-</div>
 
-<!-- BOTÓN CENTRAL -->
-<div class="center-btn">
-    <button class="center-btn" onclick="mostrarFormulario()">Solicita tu cotización</button>
-</div>
+    <span class="arrow" onclick="moveSlide(1)">&gt;</span>
+  </section>
 
-<!-- FORMULARIO -->
-<div id="formulario">
-    <h2>Solicita tu cotización</h2>
-    <p>Selecciona los productos que te interesan y comparte tus datos para recibir una cotización personalizada.</p>
+  <!-- BOTÓN CENTRAL -->
+  <button class="center-btn" onclick="mostrarFormulario()">
+    Solicita tu cotización
+  </button>
 
-    <h3>CINTAS</h3>
-    <label><input type="checkbox" name="producto" value="Cinta canela"> Cinta canela</label><br>
-    <label><input type="checkbox" name="producto" value="Cinta transparente"> Cinta transparente (Durex)</label><br>
-    <label><input type="checkbox" name="producto" value="Maskin tape"> Maskin tape</label><br>
-    <label><input type="checkbox" name="producto" value="Cinta reforzada"> Cinta reforzada</label><br>
-    <label><input type="checkbox" name="producto" value="Cinta doble cara"> Cinta doble cara</label><br>
+  <!-- FORMULARIO -->
+  <section id="formulario">
+    <h2>Solicitud de cotización</h2>
+    <p>
+      Selecciona los productos que te interesan y comparte tus datos para
+      recibir una cotización personalizada.
+    </p>
 
-    <h3>BOLSAS</h3>
-    <label><input type="checkbox" name="producto" value="Bolsa natural"> Bolsa natural</label><br>
-    <label><input type="checkbox" name="producto" value="Bolsa negra"> Bolsa negra</label><br>
+    <div class="form-section">
+      <h3>Cintas</h3>
+      <label><input type="checkbox" name="producto" value="Cinta canela" />
+        Cinta canela</label>
+      <label><input type="checkbox" name="producto" value="Cinta transparente" />
+        Cinta transparente</label>
+      <label><input type="checkbox" name="producto" value="Maskin tape" />
+        Maskin tape</label>
+      <label><input type="checkbox" name="producto" value="Cinta reforzada" />
+        Cinta reforzada</label>
+    </div>
 
-    <h3>PAPELERÍA</h3>
-    <label><input type="checkbox" name="producto" value="Papel Kraft"> Papel Kraft</label><br>
-    <label><input type="checkbox" name="producto" value="Rollo térmico"> Rollo térmico</label><br>
+    <div class="form-section">
+      <h3>Bolsas</h3>
+      <label><input type="checkbox" name="producto" value="Bolsa natural" />
+        Bolsa natural</label>
+      <label><input type="checkbox" name="producto" value="Bolsa negra" />
+        Bolsa negra</label>
+    </div>
 
-    <h3>CANTIDADES</h3>
-    <textarea id="cantidades" placeholder="Ejemplo: Cinta canela: 50 cajas; Bolsa negra: 1000 pzs;"></textarea>
+    <div class="form-section">
+      <h3>Papelería</h3>
+      <label><input type="checkbox" name="producto" value="Papel Kraft" />
+        Papel Kraft</label>
+      <label><input type="checkbox" name="producto" value="Rollo térmico" />
+        Rollo térmico</label>
+    </div>
 
-    <h3>Datos del cliente</h3>
-    <input id="nombre" placeholder="Nombre completo">
-    <input id="empresa" placeholder="Empresa">
-    <input id="correo" placeholder="Correo electrónico">
-    <input id="telefono" placeholder="Teléfono">
+    <div class="form-section">
+      <h3>Cantidades</h3>
+      <textarea
+        id="cantidades"
+        placeholder="Ejemplo: Cinta canela: 50 cajas; Bolsa negra: 1000 pzs; etc."
+      ></textarea>
+    </div>
 
-    <button class="submit-btn" onclick="enviarCotizacion()">Enviar cotización por WhatsApp</button>
-</div>
+    <div class="form-section">
+      <h3>Datos del cliente</h3>
+      <input
+        id="nombre"
+        type="text"
+        placeholder="Nombre completo"
+        autocomplete="name"
+      />
+      <input
+        id="empresa"
+        type="text"
+        placeholder="Empresa"
+        autocomplete="organization"
+      />
+      <input
+        id="correo"
+        type="email"
+        placeholder="Correo electrónico"
+        autocomplete="email"
+      />
+      <input
+        id="telefono"
+        type="text"
+        placeholder="Teléfono"
+        autocomplete="tel"
+      />
+    </div>
 
-<!-- BLOQUE FINAL -->
-<div class="footer-block" style="text-align:center; margin-top:40px;">
-    <h3 style="margin-bottom:5px">Esther Bucay</h3>
-    <p style="margin-bottom:15px; font-size:18px;">Ejecutiva de Ventas</p>
+    <button class="submit-btn" onclick="enviarCotizacion()">
+      Enviar cotización por WhatsApp
+    </button>
+  </section>
 
-    <button class="footer-btn" onclick="window.open('catalogo.pdf')">Abrir Catálogo</button>
-    <button class="footer-btn whatsapp" onclick="window.open('https://wa.me/525587929029')">Contactar por WhatsApp</button>
-</div>
+  <!-- BLOQUE FINAL -->
+  <section class="footer-block">
+    <h3>Esther Bucay</h3>
+    <p>Ejecutiva de Ventas</p>
 
-<!-- SCRIPTS -->
-<script>
-let index = 0;
-const track = document.getElementById("track");
-const totalSlides = track.children.length;
+    <button
+      class="footer-btn"
+      onclick="window.open('catalogo.pdf', '_blank')"
+    >
+      Abrir catálogo
+    </button>
 
-function moveSlide(dir) {
-    index += dir;
-    if (index < 0) index = totalSlides - 4;
-    if (index > totalSlides - 4) index = 0;
-    track.style.transform = "translateX(" + (-index * 195) + "px)";
-}
+    <button
+      class="footer-btn whatsapp"
+      onclick="window.open('https://wa.me/525587929029', '_blank')"
+    >
+      Contactar por WhatsApp
+    </button>
+  </section>
 
-function mostrarFormulario() {
-    document.getElementById("formulario").style.display = "block";
-    window.scrollTo({ top: formulario.offsetTop - 50, behavior: "smooth" });
-}
+  <!-- SCRIPTS -->
+  <script>
+    // Carrousel simple
+    let index = 0;
+    const track = document.getElementById("track");
+    const slides = track.children;
+    const slideWidth = 150 + 12; // ancho + gap (px)
 
- const seleccionados = [...document.querySelectorAll("input[name='producto']:checked")]
-        .map(i => "- " + i.value)
+    function moveSlide(dir) {
+      index += dir;
+
+      const maxIndex = slides.length - 1;
+      if (index < 0) index = 0;
+      if (index > maxIndex) index = maxIndex;
+
+      const offset = -index * slideWidth;
+      track.style.transform = "translateX(" + offset + "px)";
+    }
+
+    // Mostrar formulario
+    function mostrarFormulario() {
+      const form = document.getElementById("formulario");
+      form.style.display = "block";
+      form.scrollIntoView({ behavior: "smooth" });
+    }
+
+    // Enviar cotización a WhatsApp
+    function enviarCotizacion() {
+      const seleccionados = [...document.querySelectorAll(
+        "input[name='producto']:checked"
+      )]
+        .map((i) => "- " + i.value)
         .join("\n");
 
-    const nombre = document.getElementById("nombre").value;
-    const empresa = document.getElementById("empresa").value;
-    const correo = document.getElementById("correo").value;
-    const telefono = document.getElementById("telefono").value;
-    const cantidades = document.getElementById("cantidades").value;
+      const nombre = document.getElementById("nombre").value.trim();
+      const empresa = document.getElementById("empresa").value.trim();
+      const correo = document.getElementById("correo").value.trim();
+      const telefono = document.getElementById("telefono").value.trim();
+      const cantidades = document.getElementById("cantidades").value.trim();
 
-    const mensaje = 
-`Solicitud de cotización:
+      const mensaje = `Solicitud de cotización:
 
 Productos seleccionados:
-${seleccionados}
+${seleccionados || "- (no se seleccionaron productos)"}
 
 Cantidades:
-${cantidades}
+${cantidades || "- (no se especificaron cantidades)"}
 
 Datos del cliente:
-Nombre: ${nombre}
-Empresa: ${empresa}
-Correo: ${correo}
-Teléfono: ${telefono}
+Nombre: ${nombre || "-"}
+Empresa: ${empresa || "-"}
+Correo: ${correo || "-"}
+Teléfono: ${telefono || "-"}
 `;
 
-    const url = "https://wa.me/525587929029?text=" + encodeURIComponent(mensaje);
-    window.open(url);
-}
-</script>
+      const numeroWhats = "525587929029"; // con 52 de México
+      const url =
+        "https://wa.me/" +
+        numeroWhats +
+        "?text=" +
+        encodeURIComponent(mensaje);
+
+      window.open(url, "_blank");
+    }
+  </script>
+</body>
+</html>
